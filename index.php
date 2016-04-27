@@ -27,7 +27,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<a href="#me" class="icon fa-home active"><span>Home</span></a>
-						<a href="#registro" class="icon fa-book"><span>Registros</span></a>
+						<a href="#registro" class="icon fa-pencil-square-o"><span>Registros</span></a>
 						<a href="#expediente" class="icon fa-folder"><span>Expedientes</span></a>
 						<a href="login.html" class="icon fa-sign-out"><span>Salir</span></a>
 					</nav>
@@ -62,17 +62,17 @@
 											<?php
 													include "datosConexion.php";
 
-													$sql = "SELECT nombre FROM info_paciente";
+													$sql = "SELECT nombre, id FROM info_paciente";
 													$result = $conexion->query($sql);
 
 													if ($result->num_rows > 0) {
 													// output data of each row
 
 														echo " <h6> Nombre</h6>";
-													while($row = $result->fetch_assoc()) {
-															echo "<br>" . $row["nombre"]. " <a href='http://google.com'> [Ver expediente]</a>";
+													   while($row = $result->fetch_assoc()) {
+															echo "<br>" . $row["nombre"]. " <a href='paciente.php'> [Ver expediente]</a>";
 													}
-													} else {
+													   } else {
 															echo "0 results";
 													}
 													$conexion->close();
@@ -94,19 +94,19 @@
 									<div>
 										<div class="row">
 											<div class="12u$">
-												<input type="text" name="nombre" placeholder="Nombre completo" />
+												<input type="text" name="nombre" placeholder="Nombre completo" required>
 											</div>
 											<div class="6u 12u$(mobile)">
-												<input type="text" name="telefono" placeholder="Teléfono" />
+												<input type="text"  name="telefono" placeholder="Teléfono"  required>
 											</div>
 											<div class="6u$ 12u$(mobile)">
 												Fecha de nacimiento
-												<input type="date" name="fecha" placeholder="Fecha" />
+												<input type="date" name="fecha" placeholder="Fecha" required>
 
 
 											</div>
 											<div class="12u$">
-												<textarea name="antecedentes" placeholder="Antecedentes" rows="8"></textarea>
+												<textarea name="antecedentes" placeholder="Antecedentes" rows="8" required></textarea>
 											</div>
 											<div class="12u$">
 												<input type="submit" name="registro" value="Registrar paciente">
