@@ -58,7 +58,8 @@
 												<input type="text" name="busqueda" placeholder="Búsqueda" />
 											</div>
 
-											<div> <h2>Expediente </h2><br>
+											<div> <h2>Expediente </h2><br>  
+                                            <div class="table" >
 											<?php
 													include "datosConexion.php";
 
@@ -67,17 +68,18 @@
 
 													if ($result->num_rows > 0) {
 													// output data of each row
-
 														echo " <h6> Nombre</h6>";
 													   while($row = $result->fetch_assoc()) {
-															echo "<br>" . $row["nombre"]. " <a href='paciente.php'> [Ver expediente]</a>";
-													}
-													   } else {
-															echo "0 results";
+                                                           $idp = $row["id"];
+														   echo "<br>" . $row["nombre"] . "<a href='paciente.php?id=".$idp."'> [Ver expediente]</a>";
+													   }
+													} else {
+														echo "0 results";
 													}
 													$conexion->close();
 											?>
 											</div>
+                                            </div>
 										</div>
 								</form>
 								</header>
