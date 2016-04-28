@@ -1,3 +1,11 @@
+<?php
+  include "datosConexion.php";
+
+if(empty($_SESSION['usuario'])){
+	  header('Location: login.html');
+	}
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -9,10 +17,8 @@
 		<title>Astral by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 
 	<div>
@@ -29,13 +35,14 @@
 						<a href="#me" class="icon fa-home active"><span>Home</span></a>
 						<a href="#registro" class="icon fa-pencil-square-o"><span>Registros</span></a>
 						<a href="#expediente" class="icon fa-folder"><span>Expedientes</span></a>
-						<a href="login.html" class="icon fa-sign-out"><span>Salir</span></a>
+						<a href="logout.php" class="icon fa-sign-out"><span>Salir</span></a>
+
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Me -->
+						<!-- Pagina Principal -->
 							<article id="me" class="panel">
 								<header>
 									<h1>Alvarez Camarena Christian</h1>
@@ -43,12 +50,12 @@
 									<p><br>Torre Médica CIMA</p>
 								</header>
 								<a class="jumplink pic">
-									<!--<span class="arrow icon fa-chevron-right"><span>See my work</span></span>-->
+
 									<img src="images/pqq.jpg" alt="" />
 								</a>
 							</article>
 
-						<!-- exped -->
+						<!-- Expediente -->
 							<article id="expediente" class="panel">
 								<header>
 										<form  method="post">
@@ -85,7 +92,7 @@
 
 							</article>
 
-						<!-- Contact -->
+						<!-- Registro -->
 							<article id="registro" class="panel">
 								<header>
 									<h2>Registro de pacientes</h2>
@@ -103,7 +110,6 @@
 												Fecha de nacimiento
 												<input type="date" name="fecha" placeholder="Fecha" required>
 
-
 											</div>
 											<div class="12u$">
 												<textarea name="antecedentes" placeholder="Antecedentes" rows="8" required></textarea>
@@ -117,17 +123,6 @@
 								</form>
 							</article>
 
-							<!--Usuario-->
-
-							 <!--
-							<article id="usuario" class="panel">
-								<div class="center">
-									<h2>Usuario</h2><br>
-									<input type="button" value="Alvarez Camarena Christian" onclick="window.location='index.php'">
-									<input type="button" value="Salir" onclick="window.location='login.html'">
-								</div>
-							</article>
-						-->
 					</div>
 
 				<!-- Footer -->
@@ -143,7 +138,6 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 
 	</body>

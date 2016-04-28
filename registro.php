@@ -1,5 +1,10 @@
 <?php
+
     include "datosConexion.php";
+
+	if(empty($_SESSION['usuario'])){
+	  header('Location: login.html');
+	}
 
     $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
