@@ -823,21 +823,23 @@
 		width: 100%;
 	}
 
-		table.default tbody tr {
-			border-bottom: solid 1px #f4f4f4;
+		table tbody tr {
+			border-bottom: solid 1px lightgray;
 		}
 
-		table.default td {
+		table td {
+            text-align:left;
 			padding: 0.5em 1em 0.5em 1em;
 		}
 
-		table.default th {
+		table th {
 			text-align: left;
+            -webkit-text-size-adjust: 40 px;
 			font-weight: 400;
 			padding: 0.5em 1em 0.5em 1em;
 		}
 
-		table.default thead {
+		table thead {
 			border-bottom: solid 2px #f4f4f4;
 		}
 

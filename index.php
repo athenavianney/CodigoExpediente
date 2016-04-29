@@ -1,9 +1,5 @@
 <?php
   include "datosConexion.php";
-
-if(empty($_SESSION['usuario'])){
-	  header('Location: login.html');
-	}
 ?>
 
 <!DOCTYPE HTML>
@@ -59,26 +55,23 @@ if(empty($_SESSION['usuario'])){
 							<article id="expediente" class="panel">
 								<header>
 										<form  method="post">
-										<div class="row" >
+										<!--<div class="row" > -->
 
-											<div class="6u 12u$(mobile)">
+											 <div class="6u 12u$(mobile)">
 												<input type="text" name="busqueda" placeholder="Búsqueda" />
-											</div>
-
-											<div> <h2>Expediente </h2><br>  
+											</div> 
                                             <div class="table" >
 											<?php
-													include "datosConexion.php";
-
 													$sql = "SELECT nombre, id FROM info_paciente";
 													$result = $conexion->query($sql);
 
 													if ($result->num_rows > 0) {
 													// output data of each row
-														echo " <h6> Nombre</h6>";
+                                                        
+														echo " <table> <tr> <th> Nombre </th> </tr>";
 													   while($row = $result->fetch_assoc()) {
                                                            $idp = $row["id"];
-														   echo "<br>" . $row["nombre"] . "<a href='paciente.php?id=".$idp."'> [Ver expediente]</a>";
+														   echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='paciente.php?id=".$idp." ' class='icon fa-eye active'></a> " . "</td> </tr>";
 													   }
 													} else {
 														echo "0 results";
