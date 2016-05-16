@@ -18,7 +18,7 @@
 	</head>
 
 	<div>
-		<h3>Programa expediente ortopedico</h3>
+		<h3>Programa Expediente Ortopédico</h3>
 	</div>
 	<body>
 		<!-- Wrapper-->
@@ -83,7 +83,6 @@
 									<form  method="post">
                                     <!--<div class="row" > -->
                                         <div class="6u 12u$(mobile)">
-                                            <input type="busqueda" name="busqueda" placeholder="Búsqueda" />  
                                              <a href="#expediente" class="icon fa-search active"></a>  
                                         </div> 
                                         <div class="table" >
@@ -95,7 +94,7 @@
                                                     echo " <table> <tr> <th> Paciente </th> </tr>";
                                                     while($row = $result->fetch_assoc()) {
                                                         $idp = $row["id"];
-                                                        echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active'></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active'></a> " . "</td> <td>"."<a href='verCitas.php?id=".$idp." ' class='icon fa-folder-open-o active'></a> " . "</td> </tr>";
+                                                        echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active' title='Perfil' ></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active' title='Nueva Consulta'></a> " . "</td> <td>"."<a href='verCitas.php? id=".$idp." ' class='icon fa-folder-open-o active' title='Consultas'> </a> " . "</td> </tr>";
                                                     }
                                                 } else {
                                                     echo "0 results";
