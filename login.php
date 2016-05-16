@@ -9,7 +9,7 @@
     $result =  mysqli_num_rows( $query );
 
     if( $result == 1 ){
-        $_SESSION['usuario'] = $usuario;
+        $_SESSION["usuario"] = $usuario;
         header("Location: index.php#");
         exit();
     }else{
