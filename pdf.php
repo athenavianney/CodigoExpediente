@@ -1,5 +1,29 @@
 <?php
 require('fpdf181/fpdf.php');
+include "datosConexion.php";
+
+$id = $_GET['id'];
+$idp = $_GET['idp'];
+
+$sql = "SELECT receta FROM actualizar_paciente WHERE id='$id'";
+$sql2 = "SELECT nombre FROM info_paciente WHERE id='$idp'";
+$result = $conexion->query($sql);
+
+if ($result->num_rows > 0) {    
+    while($row = $result->fetch_assoc()) {
+        $receta = $row["receta"];
+    }
+} 
+
+$result2 = $conexion->query($sql2);
+
+if ($result2->num_rows > 0) {    
+    while($row = $result2->fetch_assoc()) {
+        $nombre = $row["nombre"];
+    }
+} 
+
+$conexion->close();
 
 class PDF extends FPDF{
 // Cabecera de página
@@ -34,7 +58,7 @@ $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',12);
-for($i=1;$i<=40;$i++)
-    $pdf->Cell(0,10,'Imprimiendo línea número '.$i,0,1);
+$pdf->Cell(0,10,$nombre ,0,1);
+$pdf->Cell(0,10,$receta,0,1);
 $pdf->Output();
 ?>

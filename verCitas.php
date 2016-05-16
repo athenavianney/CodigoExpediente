@@ -40,18 +40,21 @@
 								</header>
 								<?php
                                     $id = $_REQUEST['id'];
-                                    $sql = "SELECT fecha, nota, receta FROM actualizar_paciente WHERE idPaciente='$id'";
+                                    $sql = "SELECT idPaciente, id, fecha, nota, receta FROM actualizar_paciente WHERE idPaciente='$id'";
+                                    
                                     $result = $conexion->query($sql);
 
                                     if ($result->num_rows > 0) {    
                                         echo " <table> <tr> <th> FECHA </th> <th> NOTA </th> <th> RECETA </th> </tr>";
                                         while($row = $result->fetch_assoc()) {
-                                            echo "<tr> <td>" . $row["fecha"] ." </td> <td>" . $row["nota"] ." </td> <td>" . $row["receta"] ." </td> <td>" . "<a href='pdf.php' class='icon fa-print active'></a> "  . "</td> </tr>";
+                                            $idp = $row["id"];
+                                            $idp2 = $row["idPaciente"];
+                                            echo "<tr> <td>" . $row["fecha"] ." </td> <td>" . $row["nota"] ." </td> <td>" . $row["receta"] ." </td> <td>" . "<a href='pdf.php?id=" . $idp . "&idp=" . $idp2 . "' class='icon fa-print active'></a> "  . "</td> </tr>";
                                         }
                                     } else {
                                         echo "0 results";
                                     }
-                                    $conexion->close();
+                                    $conexion->close(); 
             
                                     ?>
 							</article>
