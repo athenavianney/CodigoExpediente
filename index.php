@@ -10,7 +10,8 @@
 -->
 <html>
 	<head>
-		<title>Astral by HTML5 UP</title>
+		<title>EO</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
