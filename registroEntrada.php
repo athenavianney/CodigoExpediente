@@ -27,8 +27,8 @@
 				<div class="sk-cube2 sk-cube"></div>
 				<div class="sk-cube4 sk-cube"></div>
 				<div class="sk-cube3 sk-cube"></div>
-			</div>   
-			
+			</div>
+
 			<p align="center"><font color="white">Guardando consulta...</font></p>
 				<!-- Footer -->
 					<div id="footer">
@@ -38,10 +38,10 @@
 					</div>
 			</div>
 
-	
+
 	</body>
         </html>
-        
+
         <?php
         echo "<meta http-equiv='refresh' content='3;url= index.php#' />";
     }else{

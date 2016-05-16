@@ -2,7 +2,6 @@
   include "datosConexion.php";
   $id = $_GET['id'];
 ?>
-
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -10,14 +9,14 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html
-    
+
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <div>
-		  <h3>Programa expediente ortopedico</h3>
+		  <h3>Programa Expediente Ortopédico</h3>
 	    </div>
 	</head>
 
@@ -27,13 +26,13 @@
 			<div id="wrapper">
 
 				<!-- Nav -->
-					
-                            <nav id="nav">
+
+            <nav id="nav">
 						<a href="index.php#expediente" class="icon fa-arrow-left active"><span>Atrás</span></a>
-					</nav>
-                    
+					     </nav>
+
                     <div id="main">
-                        
+
 						<!-- Pagina Principal -->
 							<article id="registro" class="panel">
 								<header>
@@ -44,30 +43,29 @@
 										<div class="row">
 											<div class="6u$ 12u$(mobile)">
 												Fecha de entrada
-												<input type="date" name="fecha" placeholder="Fecha" required>
+												<input type="date" name="fecha" placeholder="Fecha" required >
 											</div>
 											<div class="12u$">
                                                 Nota
-												<textarea name="nota" placeholder="Introduce una nueva nota..." rows="3"></textarea>
+												<textarea name="nota" placeholder="Introduzca una nueva nota" rows="3"></textarea>
 											</div>
-                                            
+
                                             <div class="12u$">
                                                 Receta
-												<textarea name="receta" placeholder="Introduce una nueva receta..." rows="3"></textarea>
+												<textarea name="receta" placeholder="Introduzca una nueva receta" rows="3"></textarea>
 											</div>
 											<div class="12u$">
-                                                <input type="hidden" name="id" value="<?php echo $id; ?>">   
+                                                <input type="hidden" name="id" value="<?php echo $id; ?>">
 												<input type="submit" name="registro" value="Registrar consulta">
 											</div>
 										</div>
 									</div>
 								</form>
-							<!-- </article>
-                     </div> -->
-
+							 </article>
+                     </div>
 
 				<!-- Footer -->
-					<!-- <div id="footer">
+					 <div id="footer">
 						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>

@@ -1,1 +1,0 @@
-Documentacion del proyecto final. Por el momento es un borrador.

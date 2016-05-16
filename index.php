@@ -45,7 +45,7 @@
 									<img src="images/pqq.jpg" alt="" />
 								</a>
 							</article>
-                            
+
                             <!-- Registro -->
 							<article id="registro" class="panel">
 								<header>
@@ -77,20 +77,15 @@
 
 						<!-- Expediente -->
 							<article id="expediente" class="panel">
-								<header>
 									<h2>Expedientes</h2>
-								</header>
 									<form  method="post">
                                     <!--<div class="row" > -->
-                                        <div class="6u 12u$(mobile)">
-                                             <a href="#expediente" class="icon fa-search active"></a>  
-                                        </div> 
                                         <div class="table" >
                                             <?php
                                                 $sql = "SELECT nombre, id FROM info_paciente";
                                                 $result = $conexion->query($sql);
 
-                                                if ($result->num_rows > 0) {    
+                                                if ($result->num_rows > 0) {
                                                     echo " <table> <tr> <th> Paciente </th> </tr>";
                                                     while($row = $result->fetch_assoc()) {
                                                         $idp = $row["id"];
@@ -103,16 +98,14 @@
                                             ?>
                                         </div>
                                     </form>
-                                </header>
-                            </p>
-                        </article>						
+                        </article>
 					</div>
 
 				<!-- Footer -->
 					<div id="footer">
-						<!--<ul class="copyright">
+						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>-->
+						</ul>
 					</div>
 			    </div>
 		<!-- Scripts -->
