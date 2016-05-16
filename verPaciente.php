@@ -8,12 +8,16 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html
+    
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <div>
+		  <h3>Programa expediente ortopedico</h3>
+	    </div>
 	</head>
 
 	<body>
@@ -23,13 +27,18 @@
 
 				<!-- Nav -->
 					
-						<a href="index.php#expediente" class="icon fa-arrow-left active"></a>
+                    <nav id="nav">
+						<a href="index.php#expediente" class="icon fa-arrow-left active"><span>Atrás</span></a>
+					</nav>
                     
                     <div id="main">
 
 						<!-- Pagina Principal -->
-							<article id="me" class="panel">
-                                <?php
+							<article id="registro" class="panel">
+								<header>
+									<h2 align="center">Informacion paciente</h2>
+								</header>
+								<?php
                                         
                                         $id = $_GET['id'];
                                         
@@ -38,7 +47,6 @@
                                     }
                                     
                                     $path = "SELECT * FROM info_paciente WHERE id='$id'";
-                                    $path2 = "SELECT * FROM acualizar_paciente WHERE idPaciente=17";
                                     if($result=$conexion->query($path) ){
                                     
                                         echo "<table> <tr> <th> NOMBRE </th> <th> FECHA DE NACIMIENTO </th> <th> TELEFONO </th> <th> ANTECEDENTE </th></tr> ";
@@ -54,16 +62,16 @@
                                         }     
                                         
                                     ?>
-							<!-- </article>
-                     </div> -->
+							</article>
+                     </div>
 
 
 				<!-- Footer -->
-					<div id="footer">
+					<!-- <div id="footer">
 						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
-					</div>
+					</div>-->
 			</div>
 
 		<!-- Scripts -->

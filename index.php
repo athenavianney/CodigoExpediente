@@ -26,7 +26,7 @@
 
 				<!-- Nav -->
 					<nav id="nav">
-						<a href="#me" class="icon fa-home active"><span>Home</span></a>
+						<a href="#me" class="icon fa-home active"><span>Inicio</span></a>
 						<a href="#registro" class="icon fa-pencil-square-o"><span>Registros</span></a>
 						<a href="#expediente" class="icon fa-folder"><span>Expedientes</span></a>
 						<a href="logout.php" class="icon fa-sign-out"><span>Salir</span></a>
@@ -37,7 +37,7 @@
 						<!-- Pagina Principal -->
 							<article id="me" class="panel">
 								<header>
-									<h1>Alvarez Camarena Christian</h1>
+									<h1>DR. Christian Alvarez</h1>
 									<p>Ortopedia Pediátrica</p>
 									<p><br>Torre Médica CIMA</p>
 								</header>
@@ -51,7 +51,7 @@
 								<header>
 									<h2>Registro de pacientes</h2>
 								</header>
-								<form action="registro.php" method="post">
+								<form action="registroPaciente.php" method="post">
 									<div>
 										<div class="row">
 											<div class="12u$">
@@ -65,7 +65,7 @@
 												<input type="date" name="fecha" placeholder="Fecha" required>
 											</div>
 											<div class="12u$">
-												<textarea name="antecedentes" placeholder="Antecedentes" rows="8" required></textarea>
+												<textarea name="antecedentes" placeholder="Antecedentes" rows="5" required></textarea>
 											</div>
 											<div class="12u$">
 												<input type="submit" name="registro" value="Registrar paciente">
@@ -78,10 +78,13 @@
 						<!-- Expediente -->
 							<article id="expediente" class="panel">
 								<header>
+									<h2>Expedientes</h2>
+								</header>
 									<form  method="post">
                                     <!--<div class="row" > -->
                                         <div class="6u 12u$(mobile)">
-                                            <input type="text" name="busqueda" placeholder="Búsqueda" />
+                                            <input type="busqueda" name="busqueda" placeholder="Búsqueda" />  
+                                             <a href="#expediente" class="icon fa-search active"></a>  
                                         </div> 
                                         <div class="table" >
                                             <?php
@@ -89,16 +92,16 @@
                                                 $result = $conexion->query($sql);
 
                                                 if ($result->num_rows > 0) {    
-                                                    echo " <table> <tr> <th> Nombre </th> </tr>";
+                                                    echo " <table> <tr> <th> Paciente </th> </tr>";
                                                     while($row = $result->fetch_assoc()) {
                                                         $idp = $row["id"];
-                                                        echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='paciente.php?id=".$idp." ' class='icon fa-eye active'></a> " ." </td> <td>". "<a href='paciente.php?id=".$idp." ' class='icon fa-pencil-square active'></a> " . "</td> </tr>";
+                                                        echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active'></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active'></a> " . "</td> <td>"."<a href='verCitas.php?id=".$idp." ' class='icon fa-folder-open-o active'></a> " . "</td> </tr>";
                                                     }
                                                 } else {
                                                     echo "0 results";
                                                 }
                                                 $conexion->close();
-                                        ?>
+                                            ?>
                                         </div>
                                     </form>
                                 </header>
@@ -108,9 +111,9 @@
 
 				<!-- Footer -->
 					<div id="footer">
-						<ul class="copyright">
+						<!--<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
+						</ul>-->
 					</div>
 			    </div>
 		<!-- Scripts -->

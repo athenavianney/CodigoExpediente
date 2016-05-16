@@ -1,6 +1,5 @@
 <?php
   include "datosConexion.php";
-  $id = $_GET['id'];
 ?>
 
 <!DOCTYPE HTML>
@@ -33,37 +32,30 @@
 					</nav>
                     
                     <div id="main">
-                        
+
 						<!-- Pagina Principal -->
 							<article id="registro" class="panel">
 								<header>
-									<h2>Consulta</h2>
+									<h2 align="center">Consultas paciente</h2>
 								</header>
-								<form action="registroEntrada.php" method='post'>
-									<div>
-										<div class="row">
-											<div class="6u$ 12u$(mobile)">
-												Fecha de entrada
-												<input type="date" name="fecha" placeholder="Fecha" required>
-											</div>
-											<div class="12u$">
-                                                Nota
-												<textarea name="nota" placeholder="Introduce una nueva nota..." rows="3"></textarea>
-											</div>
-                                            
-                                            <div class="12u$">
-                                                Receta
-												<textarea name="receta" placeholder="Introduce una nueva receta..." rows="3"></textarea>
-											</div>
-											<div class="12u$">
-                                                <input type="hidden" name="id" value="<?php echo $id; ?>">   
-												<input type="submit" name="registro" value="Registrar consulta">
-											</div>
-										</div>
-									</div>
-								</form>
-							<!-- </article>
-                     </div> -->
+								<?php
+                                    $id = $_REQUEST['id'];
+                                    $sql = "SELECT fecha, nota, receta FROM actualizar_paciente WHERE idPaciente='$id'";
+                                    $result = $conexion->query($sql);
+
+                                    if ($result->num_rows > 0) {    
+                                        echo " <table> <tr> <th> FECHA </th> <th> NOTA </th> <th> RECETA </th> </tr>";
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr> <td>" . $row["fecha"] ." </td> <td>" . $row["nota"] ." </td> <td>" . $row["receta"] ." </td> <td>" . "<a href='pdf.php' class='icon fa-print active'></a> "  . "</td> </tr>";
+                                        }
+                                    } else {
+                                        echo "0 results";
+                                    }
+                                    $conexion->close();
+            
+                                    ?>
+							</article>
+                     </div>
 
 
 				<!-- Footer -->

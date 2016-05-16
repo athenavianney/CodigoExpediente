@@ -867,6 +867,18 @@
 		-ms-transition: background-color .25s ease-in-out;
 		transition: background-color .25s ease-in-out;
 	}
+    
+    form input[type="busqueda"]{
+		-webkit-appearance: none;
+		border: 0;
+		background: #EEEEEE;
+		padding: 0.50em;
+		width: 70%;
+		-moz-transition: background-color .25s ease-in-out;
+		-webkit-transition: background-color .25s ease-in-out;
+		-ms-transition: background-color .25s ease-in-out;
+		transition: background-color .25s ease-in-out;
+	}
 /*checar en que esta utilizando estos input*/
 		form input[type="text"]:focus,
 		form input[type="email"]:focus,
