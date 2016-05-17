@@ -52,7 +52,7 @@
                                         while($row = $result->fetch_assoc()) {
                                             $idp = $row["id"];
                                             $idp2 = $row["idPaciente"];
-                                            echo "<tr> <td>" . $row["fecha"] ." </td> <td>" . $row["nota"] ." </td> <td>" . $row["receta"] ." </td> <td>" . "<a href='pdf.php?id=" . $idp . "&idp=" . $idp2 . "' class='icon fa-print active'></a> "  . "</td> </tr>";
+                                            echo "<tr> <td>" . $row["fecha"] ." </td> <td>" . $row["nota"] ." </td> <td>" . $row["receta"] ." </td> <td>" . "<a href='pdf.php?id=" . $idp . "&idp=" . $idp2 . "' class='icon fa-print active' title='Imprimir receta'></a> "  . "</td> </tr>";
                                         }
                                     } else {
                                         echo "0 results";

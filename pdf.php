@@ -68,10 +68,26 @@ $pdf->AddPage();
 $pdf->SetFont('Times','',13);
 $pdf->Cell(17,10,'Nombre: ',10,10,'C');
 $pdf->Cell(20);
-$pdf->Cell(20,-10, $nombre ,0,10);
+$nombre = utf8_decode($nombre);
+$pdf->Cell(20,-10,$nombre ,0,10);
 $pdf->Ln(20);
 $pdf->Cell(15);
+$receta = utf8_decode($receta);
 $pdf->MultiCell(0,10,$receta);
 
 $pdf->Output();
 ?>
+<html
+
+	<head>
+    <title>EO</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <div>
+		  <h3>Programa Expediente Ortopédico</h3>
+	    </div>
+	</head>
+  <
