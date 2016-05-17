@@ -28,7 +28,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<a href="#me" class="icon fa-home active"><span>Inicio</span></a>
-						<a href="#registro" class="icon fa-pencil-square-o"><span>Registros</span></a>
+						<a href="#registro" class="icon fa-pencil-square-o"><span>Registrar</span></a>
 						<a href="#expediente" class="icon fa-folder"><span>Expedientes</span></a>
 						<a href="logout.php" class="icon fa-sign-out"><span>Salir</span></a>
 					</nav>
@@ -56,6 +56,7 @@
 									<div>
 										<div class="row">
 											<div class="12u$">
+                                                
 												<input type="text" name="nombre" placeholder="Nombre completo" required>
 											</div>
 											<div class="6u 12u$(mobile)">
@@ -82,32 +83,39 @@
 									<form  method="post">
                                     <!--<div class="row" > -->
                                         <div class="table" >
-                                            <?php
+                                        <div class="6u 12u$(mobile)">
+											<input type="text" name="busqueda" placeholder="Búsqueda" />
+										</div> 
+                                        <?php
+                                            $busqueda = isset($_POST['busqueda']) ? $_POST['busqueda'] : '';
+                                            if($busqueda==NULL){
                                                 $sql = "SELECT nombre, id FROM info_paciente";
-                                                $result = $conexion->query($sql);
-
-                                                if ($result->num_rows > 0) {
-                                                    echo " <table> <tr> <th> Paciente </th> </tr>";
-                                                    while($row = $result->fetch_assoc()) {
-                                                        $idp = $row["id"];
-                                                        echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active' title='Perfil' ></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active' title='Nueva Consulta'></a> " . "</td> <td>"."<a href='verCitas.php? id=".$idp." ' class='icon fa-folder-open-o active' title='Consultas'> </a> " . "</td> </tr>";
-                                                    }
-                                                } else {
-                                                    echo "0 results";
+                                            }else{
+                                                $sql = "SELECT nombre, id FROM info_paciente WHERE (nombre LIKE '%".$busqueda."%')";
+                                            }
+                                            $result = $conexion->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                echo " <table> <tr> <th> Paciente </th> </tr>";
+                                                while($row = $result->fetch_assoc()) {
+                                                    $idp = $row["id"];
+                                                    echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active' title='Perfil' ></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active' title='Nueva Consulta'></a> " . "</td> <td>"."<a href='verCitas.php? id=".$idp." ' class='icon fa-folder-open-o active' title='Consultas'> </a> " . "</td> </tr>";
                                                 }
-                                                $conexion->close();
-                                            ?>
+                                            } else {
+                                                echo "No hay ningun paciente";
+                                            }
+                                            $conexion->close();
+                                        ?>
                                         </div>
                                     </form>
                         </article>
 					</div>
 
 				<!-- Footer -->
-					<div id="footer">
+					<!--<div id="footer">
 						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
-					</div>
+					</div>-->
 			    </div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

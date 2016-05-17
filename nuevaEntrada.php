@@ -54,7 +54,7 @@
 
                                             <div class="12u$">
                                                 Receta
-												<textarea name="receta" placeholder="Introduzca una nueva receta" rows="3"></textarea>
+												<textarea name="receta" placeholder="Introduzca una nueva receta" rows="5"></textarea>
 											</div>
 											<div class="12u$">
                                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
