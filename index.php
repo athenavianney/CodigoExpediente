@@ -56,7 +56,7 @@
 									<div>
 										<div class="row">
 											<div class="12u$">
-                                                
+
 												<input type="text" name="nombre" placeholder="Nombre completo" required>
 											</div>
 											<div class="6u 12u$(mobile)">
@@ -85,7 +85,7 @@
                                         <div class="table" >
                                         <div class="6u 12u$(mobile)">
 											<input type="text" name="busqueda" placeholder="Búsqueda" />
-										</div> 
+										</div>
                                         <?php
                                             $busqueda = isset($_POST['busqueda']) ? $_POST['busqueda'] : '';
                                             if($busqueda==NULL){
@@ -101,7 +101,7 @@
                                                     echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active' title='Perfil' ></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active' title='Nueva Consulta'></a> " . "</td> <td>"."<a href='verCitas.php? id=".$idp." ' class='icon fa-folder-open-o active' title='Consultas'> </a> " . "</td> </tr>";
                                                 }
                                             } else {
-                                                echo "No hay ningun paciente";
+                                                echo "No existe paciente con los datos dados.";
                                             }
                                             $conexion->close();
                                         ?>
@@ -111,11 +111,11 @@
 					</div>
 
 				<!-- Footer -->
-					<!--<div id="footer">
+					<div id="footer">
 						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
-					</div>-->
+					</div>
 			    </div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

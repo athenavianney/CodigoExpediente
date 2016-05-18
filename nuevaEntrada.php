@@ -58,6 +58,7 @@
 											</div>
 											<div class="12u$">
                                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                                <input type="hidden" name="idf" value="<?php echo $idf; ?>">
 												<input type="submit" name="registro" value="Registrar consulta">
 											</div>
 										</div>

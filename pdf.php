@@ -6,13 +6,14 @@ $id = $_GET['id'];
 $idp = $_GET['idp'];
 $mid_x = 135;
 
-$sql = "SELECT receta FROM actualizar_paciente WHERE id='$id'";
+$sql = "SELECT receta,fecha FROM actualizar_paciente WHERE id='$id'";
 $sql2 = "SELECT nombre FROM info_paciente WHERE id='$idp'";
 $result = $conexion->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $receta = $row["receta"];
+        $fecha = $row["fecha"];
     }
 }
 
@@ -32,10 +33,7 @@ class PDF extends FPDF{
         // Logo
         $this->Image('images/pqq.jpg',10,8,25);
         // Arial bold 15
-        $this->SetFont('Arial','B',8);
-        $this->Cell(10,10,'Logo',10,10,'C');
         $this->SetFont('Arial','B',13);
-
         // Movernos a la derecha
         $this->Cell(80);
         // Título
@@ -44,8 +42,8 @@ class PDF extends FPDF{
         $this->Cell(-30,25,'ORTOPEDIA Y TAUMATOLOGIA',0,0,'C');
         $this->Cell(30,35,'ORTOPEDIA PEDIATRICA',0,0,'C');
         $this->SetFont('Arial','B',8);
-        $this->Cell(130,-15,'Torre Medica Cima',0,0,'C');
-        $this->Line(10, 50 , 200, 50);  //Horizontal
+        $this->Cell(130,5,'Torre Medica Cima',0,0,'C');
+        $this->Line(10, 45 , 200, 45);  //Horizontal
         // Salto de línea
         $this->Ln(40);
     }
@@ -66,8 +64,11 @@ $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',13);
-$pdf->Cell(17,10,'Nombre: ',10,10,'C');
-$pdf->Cell(20);
+$pdf->Cell(295,10,'Fecha: ',10,30,'C');
+$pdf->Cell(157);
+$pdf->Cell(250,-10,$fecha,0,10);
+$pdf->Cell(-282,10,'Nombre: ',10,10,'C');
+$pdf->Cell(-130);
 $nombre = utf8_decode($nombre);
 $pdf->Cell(20,-10,$nombre ,0,10);
 $pdf->Ln(20);

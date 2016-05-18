@@ -34,7 +34,7 @@
                     <div id="main">
 
 						<!-- Pagina Principal -->
-							<article id="registro" class="panel">
+							<article class="panel">
 								<header>
 									<h2 align="center">Consultas paciente</h2>
 								</header>
@@ -43,7 +43,7 @@
                   <div class="row">
 								<?php
                                     $id = $_REQUEST['id'];
-                                    $sql = "SELECT idPaciente, id, fecha, nota, receta FROM actualizar_paciente WHERE idPaciente='$id'";
+                                    $sql = "SELECT idPaciente, id, fecha, nota, receta FROM actualizar_paciente WHERE idPaciente='$id'  ORDER BY fecha DESC";
 
                                     $result = $conexion->query($sql);
 
