@@ -84,8 +84,8 @@
                                     <!--<div class="row" > -->
                                         <div class="table" >
                                         <div class="6u 12u$(mobile)">
-											<input type="text" name="busqueda" placeholder="Búsqueda" />
-										</div>
+						<input type="text" name="busqueda" placeholder="Búsqueda" />
+					</div>
                                         <?php
                                             $busqueda = isset($_POST['busqueda']) ? $_POST['busqueda'] : '';
                                             if($busqueda==NULL){
@@ -98,7 +98,11 @@
                                                 echo " <table> <tr> <th> Paciente </th> </tr>";
                                                 while($row = $result->fetch_assoc()) {
                                                     $idp = $row["id"];
-                                                    echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id=".$idp." ' class='icon fa-eye active' title='Perfil' ></a> " ." </td> <td>". "<a href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active' title='Nueva Consulta'></a> " . "</td> <td>"."<a href='verCitas.php? id=".$idp." ' class='icon fa-folder-open-o active' title='Consultas'> </a> " . "</td> </tr>";
+                                                    echo "<tr> <td>" . $row["nombre"] ." </td> <td>". "<a href='verPaciente.php?id="
+                                                    .$idp." ' class='icon fa-eye active' title='Perfil' ></a> " ." </td> <td>". "<a 
+                                                    href='nuevaEntrada.php?id=".$idp." ' class='icon fa-pencil-square active' title=
+                                                    'Nueva Consulta'></a> " . "</td> <td>"."<a href='verCitas.php? id=".$idp." ' class=
+                                                    'icon fa-folder-open-o active' title='Consultas'> </a> " . "</td> </tr>";
                                                 }
                                             } else {
                                                 echo "No existe paciente con los datos dados.";
